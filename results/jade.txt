@@ -1,0 +1,16 @@
+
+bal Information --------------------------------------------------------
+> request count                                    1000000 (OK=1000000 KO=0     )
+> min response time                                      2 (OK=2      KO=-     )
+> max response time                                   8060 (OK=8060   KO=-     )
+> mean response time                                    10 (OK=10     KO=-     )
+> std deviation                                         26 (OK=26     KO=-     )
+> response time 50th percentile                          8 (OK=8      KO=-     )
+> response time 75th percentile                         12 (OK=12     KO=-     )
+> mean requests/sec                                946.361 (OK=946.361 KO=-     )
+---- Response Time Distribution ------------------------------------------------
+> t < 800 ms                                        999971 (100%)
+> 800 ms < t < 1200 ms                                   9 (  0%)
+> t > 1200 ms                                           20 (  0%)
+> failed                                                 0 (  0%)
+================================================================================

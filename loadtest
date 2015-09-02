@@ -1,0 +1,50 @@
+#!/bin/bash
+
+if [ "$#" -lt 1 ]; then
+    echo "usage: ./loadtest VIEW_ENGINGE [DOCKER_IP REPEATS THREADS]"
+    echo "e.g:   ./loadtest jsp 192.168.99.100 100000 10"
+    exit 1
+fi
+
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+VE=$1
+HOST=docker
+REPEATS=100000
+THREADS=10
+
+if [ "$#" -gt 1 ]; then
+    HOST=$2
+fi
+
+if [ "$#" -gt 2 ]; then
+    REPEATS=$3
+fi
+
+if [ "$#" -gt 3 ]; then
+    THREADS=$4
+fi
+
+echo "*** Runing test for ViewEngine ${VE} against host ${HOST}"
+
+echo "*** Building app ${VE}"
+cd ${DIR}/apps/${VE}
+mvn clean package
+mkdir -p ${DIR}/target/deployments
+cp target/${VE}.war ${DIR}/target/deployments
+
+echo "*** Starting docker container"
+docker-compose -f ${DIR}/docker-compose.yml rm --force
+docker-compose -f ${DIR}/docker-compose.yml up -d
+
+echo "*** Waiting 15s for glassfish"
+sleep 15
+
+echo "*** Starting gatling tests"
+cd ${DIR}/test
+mvn -Pgatling -Dloadtest.viewEngine=${VE} -Dloadtest.host=${HOST} -Dloadtest.repeats=${REPEATS} -Dloadtest.threads=${THREADS} clean verify
+
+echo "*** Stopping docker container"
+docker-compose -f ${DIR}/docker-compose.yml kill
+
+cd ${DIR}
+echo "*** Done. View the results here: ${DIR}/test/target/gatling/results/"

@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+  <title>Velocity Example</title>
+</head>
+<body>
+  <p id="cnt">${cnt}</p>
+  <p id="name">${name}</p>
+  <p id="email">${email}</p>
+  <ul id="friends">
+    #foreach($friend in $friends)
+      <li>${friend}</li>
+    #end
+  </ul>
+  #foreach($lorem in $lorems)
+    <p>$lorem</p>
+  #end
+</body>
+</html>

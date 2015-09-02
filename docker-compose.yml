@@ -1,0 +1,9 @@
+glassfish:
+  image: glassfish/nightly
+  ports:
+    - "4848:4848"
+    - "8080:8080"
+    - "8686:8686"
+  volumes:
+    - ./target/deployments:/glassfish4/glassfish/domains/domain1/autodeploy/
+  command: asadmin start-domain -v

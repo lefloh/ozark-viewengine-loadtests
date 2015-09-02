@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<head>
+  <title>Thymeleaf Example</title>
+</head>
+<body>
+  <p id="cnt" th:text="${cnt}">cnt</p>
+  <p id="name" th:text="${name}">name</p>
+  <p id="email" th:text="${email}">email</p>
+  <ul id="friends" th:each="friend: ${friends}">
+    <li th:text="${friend}"></li>
+  </ul>
+  <p th:each="lorem: ${lorems}" th:text="${lorem}"></p>
+</body>
+</html>

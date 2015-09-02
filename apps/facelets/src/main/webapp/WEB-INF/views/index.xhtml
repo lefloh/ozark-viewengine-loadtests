@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+  <title>Facelets Example</title>
+</h:head>
+<h:body>
+  <p id="cnt">${cnt}</p>
+  <p id="name">${name}</p>
+  <p id="email">${email}</p>
+  <ul id="friends">
+    <ui:repeat value="${friends}" var="friend">
+      <li>${friend}</li>
+    </ui:repeat>
+  </ul>
+  <ui:repeat value="${lorems}" var="lorem">
+    <p>${lorem}</p>
+  </ui:repeat>
+</h:body>
+</html>

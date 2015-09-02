@@ -1,0 +1,16 @@
+================================================================================
+---- Global Information --------------------------------------------------------
+> request count                                    1000000 (OK=1000000 KO=0     )
+> min response time                                      1 (OK=1      KO=-     )
+> max response time                                  26885 (OK=26885  KO=-     )
+> mean response time                                     8 (OK=8      KO=-     )
+> std deviation                                         85 (OK=85     KO=-     )
+> response time 50th percentile                          8 (OK=8      KO=-     )
+> response time 75th percentile                         11 (OK=11     KO=-     )
+> mean requests/sec                                1042.978 (OK=1042.978 KO=-     )
+---- Response Time Distribution ------------------------------------------------
+> t < 800 ms                                        999980 (100%)
+> 800 ms < t < 1200 ms                                  10 (  0%)
+> t > 1200 ms                                           10 (  0%)
+> failed                                                 0 (  0%)
+================================================================================

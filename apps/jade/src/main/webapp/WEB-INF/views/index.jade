@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title= "Jade Example"
+  body
+    p#cnt #{cnt}
+    p#name #{name}
+    p#email #{email}
+    ul#friends
+      each friend in friends
+        li= friend
+    each lorem in lorems
+      p=lorem

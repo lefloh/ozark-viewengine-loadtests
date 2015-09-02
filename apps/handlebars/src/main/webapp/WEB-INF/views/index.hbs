@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+  <title>Handlebars Example</title>
+</head>
+<body>
+  <p id="cnt">{{cnt}}</p>
+  <p id="name">{{name}}</p>
+  <p id="email">{{email}}</p>
+  <ul id="friends">
+    {{#each friends}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
+  {{#each lorems}}
+    <p>{{this}}</p>
+  {{/each}}
+</body>
+</html>
