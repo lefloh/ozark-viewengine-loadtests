@@ -40,13 +40,21 @@ class ViewEngineSimulation extends Simulation {
   val feeder = Iterator.continually(Map("uuid" -> UUID.randomUUID.toString))
 
   val scn = scenario("ViewEngineSimulation")
+    .during(60) {
+      exec(http("warmup")
+        .get("r")
+        .check(status.is(200))
+      )
+    }
+    .pause(5)
     .repeat(repeats.toInt) {
       feed(feeder)
-      .exec(http("entry")
+      .exec(http("performance")
         .get("r")
         .queryParam("uuid", "${uuid}")
         .check(status.is(200))
-      .check(regex("""<p id="uuid">${uuid}</p>""").exists))
+        .check(regex("""<p id="uuid">${uuid}</p>""").exists)
+      )
     }
 
   setUp(scn.inject(atOnceUsers(threads.toInt))).protocols(httpConf)
