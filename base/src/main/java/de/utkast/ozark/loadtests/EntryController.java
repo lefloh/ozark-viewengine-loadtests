@@ -52,8 +52,8 @@ public class EntryController {
 
 	@GET
 	@Controller
-	public String get(@QueryParam("cnt") int cnt) {
-		models.put("cnt", cnt);
+	public String get(@QueryParam("uuid") String uuid) {
+		models.put("uuid", uuid);
 		models.put("name", "John Doe");
 		models.put("email", "john@doe.com");
 		models.put("friends", Arrays.asList("Jane", "Frank", "Pete", "Mike"));

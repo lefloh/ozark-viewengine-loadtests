@@ -7,7 +7,7 @@
   <title>JSP Example</title>
 </head>
 <body>
-  <p id="cnt">${cnt}</p>
+  <p id="uuid">${uuid}</p>
   <p id="name">${name}</p>
   <p id="email">${email}</p>
   <ul id="friends">

@@ -15,6 +15,8 @@
  */
 package de.utkast.ozark.loadtests
 
+import java.util.UUID
+
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 
@@ -35,12 +37,16 @@ class ViewEngineSimulation extends Simulation {
     .acceptEncodingHeader("gzip, deflate")
     .userAgentHeader("Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0")
 
+  val feeder = Iterator.continually(Map("uuid" -> UUID.randomUUID.toString))
+
   val scn = scenario("ViewEngineSimulation")
-    .repeat(repeats.toInt, "cnt") {
-      exec(http("entry")
-      .get("r?cnt=${cnt}")
-      .check(status.is(200))
-      .check(regex("""<p id="cnt">${cnt}</p>""").exists))
+    .repeat(repeats.toInt) {
+      feed(feeder)
+      .exec(http("entry")
+        .get("r")
+        .queryParam("uuid", "${uuid}")
+        .check(status.is(200))
+      .check(regex("""<p id="uuid">${uuid}</p>""").exists))
     }
 
   setUp(scn.inject(atOnceUsers(threads.toInt))).protocols(httpConf)
