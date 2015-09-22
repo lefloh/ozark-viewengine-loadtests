@@ -8,9 +8,10 @@
     
 ## Results (2015-09-02)
 
-* Ozark at commit f0d341f8c660b4d10ada5dcd922d021507910950
-* Glassfish Nightly (2015-09-01)
+* Ozark at commit c58745f3d6c7945c4d16905cc0c25f062f8af88e
+* Glassfish Nightly (2015-09-19)
 * JDK 1.8.0_66
+* 1 minute warmup
 * 100000 Repeats
 * 10 Threads
 
