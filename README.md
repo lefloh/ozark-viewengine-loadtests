@@ -6,7 +6,7 @@
     ./loadtest VIEW_ENGINGE [DOCKER_IP REPEATS THREADS]
     # e.g: ./loadtest jsp 192.168.99.100 100000 10
     
-## Results (2015-09-02)
+## Results (2015-09-22)
 
 * Ozark at commit c58745f3d6c7945c4d16905cc0c25f062f8af88e
 * Glassfish Nightly (2015-09-19)
