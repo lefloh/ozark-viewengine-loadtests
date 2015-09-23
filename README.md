@@ -17,11 +17,11 @@
 
 | ViewEngine | Min (ms) | Max (ms) | Mean (ms) | Requests / second | 
 | :----------|---------:|---------:|----------:|------------------:|
-| Facelets   |        1 |     4926 |         5 |              1654 |
-| Freemarker |        0 |     1055 |         4 |              2093 |
-| Handlebars |        1 |     1826 |         5 |              1680 |
-| Jade       |        2 |     8060 |        10 |               946 |
-| JSP        |        0 |     1779 |         4 |              1949 |
-| Mustache   |        0 |      910 |         4 |              2131 |
-| Thymeleaf  |        1 |     1641 |         6 |              1481 |
-| Velocity   |        1 |    26885 |         8 |              1042 |
+| Facelets   |        2 |      149 |        20 |               451 |
+| Freemarker |        1 |      172 |        12 |               715 |
+| Handlebars |        1 |      162 |        18 |               499 |
+| Jade       |        2 |      207 |        38 |               254 |
+| JSP        |        1 |      147 |        14 |               640 |
+| Mustache   |        0 |      104 |        11 |               765 |
+| Thymeleaf  |        1 |      174 |        22 |               426 |
+| Velocity   |        1 |      573 |        18 |               517 |
